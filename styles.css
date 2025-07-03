@@ -1,0 +1,448 @@
+/* Custom styles for SecOps Application - Grey Tonal Palette with Purple Accent (Dark Mode Only) */
+@import url('https://fonts.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+/* --- 1. Define the single Source Color's Hue and Chroma (Saturation) --- */
+:root {
+    --source-hue: 220; /* A slightly cool grey hue for the base palette, or 0 for pure achromatic */
+    --source-chroma: 0.05; /* Very low chroma for a desaturated grey palette */
+
+    /* Define the accent color's hue and chroma separately */
+    --accent-hue: 270; /* Hue for the vibrant purple accent */
+    --accent-chroma: 0.75; /* High chroma for the vibrant purple */
+
+    /* --- 2. Material 3 Key Colors (Derived from Source, conceptually) --- */
+    /* Primary, Secondary, Tertiary, Neutral, and Neutral Variant will be shades of grey */
+    --primary-key-hue: var(--source-hue);
+    --primary-key-chroma: calc(var(--source-chroma) * 2);
+
+    --secondary-key-hue: var(--source-hue);
+    --secondary-key-chroma: calc(var(--source-chroma) * 1.5);
+
+    --tertiary-key-hue: calc(var(--source-hue) + 60);
+    --tertiary-key-chroma: calc(var(--source-chroma) * 0.8);
+
+    --neutral-key-hue: var(--source-hue);
+    --neutral-key-chroma: 0.04; /* Slightly increased chroma for more 'grey' feel */
+
+    --neutral-variant-key-hue: calc(var(--source-hue) + 10);
+    --neutral-variant-key-chroma: 0.05;
+
+
+    /* --- 3. Material 3 Tonal Palettes (Conceptual Tones 0-100) --- */
+    /* Adjusted lightness values to better match Tailwind's grey range */
+
+    /* Primary Tones (will be very desaturated greys, with a hint of the source hue) */
+    --primary-tone-0: hsl(var(--primary-key-hue) calc(var(--primary-key-chroma) * 100%) 0%);
+    --primary-tone-10: hsl(var(--primary-key-hue) calc(var(--primary-key-chroma) * 100%) 15%);
+    --primary-tone-20: hsl(var(--primary-key-hue) calc(var(--primary-key-chroma) * 100%) 25%);
+    --primary-tone-30: hsl(var(--primary-key-hue) calc(var(--primary-key-chroma) * 100%) 35%);
+    --primary-tone-40: hsl(var(--primary-key-hue) calc(var(--primary-key-chroma) * 100%) 45%);
+    --primary-tone-50: hsl(var(--primary-key-hue) calc(var(--primary-key-chroma) * 100%) 55%);
+    --primary-tone-60: hsl(var(--primary-key-hue) calc(var(--primary-key-chroma) * 100%) 65%);
+    --primary-tone-70: hsl(var(--primary-key-hue) calc(var(--primary-key-chroma) * 100%) 75%);
+    --primary-tone-80: hsl(var(--primary-key-hue) calc(var(--primary-key-chroma) * 100%) 85%);
+    --primary-tone-90: hsl(var(--primary-key-hue) calc(var(--primary-key-chroma) * 100%) 90%);
+    --primary-tone-95: hsl(var(--primary-key-hue) calc(var(--primary-key-chroma) * 100%) 95%);
+    --primary-tone-99: hsl(var(--primary-key-hue) calc(var(--primary-key-chroma) * 100%) 99%);
+    --primary-tone-100: hsl(var(--primary-key-hue) calc(var(--primary-key-chroma) * 100%) 100%);
+
+    /* Secondary Tones */
+    --secondary-tone-0: hsl(var(--secondary-key-hue) calc(var(--secondary-key-chroma) * 100%) 0%);
+    --secondary-tone-10: hsl(var(--secondary-key-hue) calc(var(--secondary-key-chroma) * 100%) 12%);
+    --secondary-tone-20: hsl(var(--secondary-key-hue) calc(var(--secondary-key-chroma) * 100%) 22%);
+    --secondary-tone-30: hsl(var(--secondary-key-hue) calc(var(--secondary-key-chroma) * 100%) 32%);
+    --secondary-tone-40: hsl(var(--secondary-key-hue) calc(var(--secondary-key-chroma) * 100%) 42%);
+    --secondary-tone-50: hsl(var(--secondary-key-hue) calc(var(--secondary-key-chroma) * 100%) 52%);
+    --secondary-tone-60: hsl(var(--secondary-key-hue) calc(var(--secondary-key-chroma) * 100%) 62%);
+    --secondary-tone-70: hsl(var(--secondary-key-hue) calc(var(--secondary-key-chroma) * 100%) 72%);
+    --secondary-tone-80: hsl(var(--secondary-key-hue) calc(var(--secondary-key-chroma) * 100%) 82%);
+    --secondary-tone-90: hsl(var(--secondary-key-hue) calc(var(--secondary-key-chroma) * 100%) 90%);
+    --secondary-tone-95: hsl(var(--secondary-key-hue) calc(var(--secondary-key-chroma) * 100%) 95%);
+    --secondary-tone-99: hsl(var(--secondary-key-hue) calc(var(--secondary-key-chroma) * 100%) 99%);
+    --secondary-tone-100: hsl(var(--secondary-key-hue) calc(var(--secondary-key-chroma) * 100%) 100%);
+
+    /* Tertiary Tones */
+    --tertiary-tone-0: hsl(var(--tertiary-key-hue) calc(var(--tertiary-key-chroma) * 100%) 0%);
+    --tertiary-tone-10: hsl(var(--tertiary-key-hue) calc(var(--tertiary-key-chroma) * 100%) 18%);
+    --tertiary-tone-20: hsl(var(--tertiary-key-hue) calc(var(--tertiary-key-chroma) * 100%) 28%);
+    --tertiary-tone-30: hsl(var(--tertiary-key-hue) calc(var(--tertiary-key-chroma) * 100%) 38%);
+    --tertiary-tone-40: hsl(var(--tertiary-key-hue) calc(var(--tertiary-key-chroma) * 100%) 48%);
+    --tertiary-tone-50: hsl(var(--tertiary-key-hue) calc(var(--tertiary-key-chroma) * 100%) 58%);
+    --tertiary-tone-60: hsl(var(--tertiary-key-hue) calc(var(--tertiary-key-chroma) * 100%) 68%);
+    --tertiary-tone-70: hsl(var(--tertiary-key-hue) calc(var(--tertiary-key-chroma) * 100%) 78%);
+    --tertiary-tone-80: hsl(var(--tertiary-key-hue) calc(var(--tertiary-key-chroma) * 100%) 88%);
+    --tertiary-tone-90: hsl(var(--tertiary-key-hue) calc(var(--tertiary-key-chroma) * 100%) 90%);
+    --tertiary-tone-95: hsl(var(--tertiary-key-hue) calc(var(--tertiary-key-chroma) * 100%) 95%);
+    --tertiary-tone-99: hsl(var(--tertiary-key-hue) calc(var(--tertiary-key-chroma) * 100%) 99%);
+    --tertiary-tone-100: hsl(var(--tertiary-key-hue) calc(var(--tertiary-key-chroma) * 100%) 100%);
+
+    /* Neutral Tones (aiming for Tailwind's grey range: 300-800 for most use) */
+    --neutral-tone-0: hsl(var(--neutral-key-hue) calc(var(--neutral-key-chroma) * 100%) 0%);
+    --neutral-tone-10: hsl(var(--neutral-key-hue) calc(var(--neutral-key-chroma) * 100%) 10%); /* Comparable to gray-900/950 */
+    --neutral-tone-20: hsl(var(--neutral-key-hue) calc(var(--neutral-key-chroma) * 100%) 20%); /* Comparable to gray-800/900 */
+    --neutral-tone-30: hsl(var(--neutral-key-hue) calc(var(--neutral-key-chroma) * 100%) 30%); /* Comparable to gray-700/800 */
+    --neutral-tone-40: hsl(var(--neutral-key-hue) calc(var(--neutral-key-chroma) * 100%) 40%); /* Comparable to gray-600/700 */
+    --neutral-tone-50: hsl(var(--neutral-key-hue) calc(var(--neutral-key-chroma) * 100%) 50%); /* Comparable to gray-500/600 */
+    --neutral-tone-60: hsl(var(--neutral-key-hue) calc(var(--neutral-key-chroma) * 100%) 60%); /* Comparable to gray-400/500 */
+    --neutral-tone-70: hsl(var(--neutral-key-hue) calc(var(--neutral-key-chroma) * 100%) 70%); /* Comparable to gray-300/400 */
+    --neutral-tone-80: hsl(var(--neutral-key-hue) calc(var(--neutral-key-chroma) * 100%) 80%); /* Comparable to gray-200/300 */
+    --neutral-tone-90: hsl(var(--neutral-key-hue) calc(var(--neutral-key-chroma) * 100%) 90%); /* Comparable to gray-100/200 */
+    --neutral-tone-95: hsl(var(--neutral-key-hue) calc(var(--neutral-key-chroma) * 100%) 95%); /* Very light grey */
+    --neutral-tone-99: hsl(var(--neutral-key-hue) calc(var(--neutral-key-chroma) * 100%) 99%); /* Almost white */
+    --neutral-tone-100: hsl(var(--neutral-key-hue) calc(var(--neutral-key-chroma) * 100%) 100%); /* White */
+
+    /* Neutral Variant Tones (slightly different greys, still neutral) */
+    --neutral-variant-tone-0: hsl(var(--neutral-variant-key-hue) calc(var(--neutral-variant-key-chroma) * 100%) 0%);
+    --neutral-variant-tone-10: hsl(var(--neutral-variant-key-hue) calc(var(--neutral-variant-key-chroma) * 100%) 12%);
+    --neutral-variant-tone-20: hsl(var(--neutral-variant-key-hue) calc(var(--neutral-variant-key-chroma) * 100%) 22%);
+    --neutral-variant-tone-30: hsl(var(--neutral-variant-key-hue) calc(var(--neutral-variant-key-chroma) * 100%) 32%);
+    --neutral-variant-tone-40: hsl(var(--neutral-variant-key-hue) calc(var(--neutral-variant-key-chroma) * 100%) 42%);
+    --neutral-variant-tone-50: hsl(var(--neutral-variant-key-hue) calc(var(--neutral-variant-key-chroma) * 100%) 52%);
+    --neutral-variant-tone-60: hsl(var(--neutral-variant-key-hue) calc(var(--neutral-variant-key-chroma) * 100%) 62%);
+    --neutral-variant-tone-70: hsl(var(--neutral-variant-key-hue) calc(var(--neutral-variant-key-chroma) * 100%) 72%);
+    --neutral-variant-tone-80: hsl(var(--neutral-variant-key-hue) calc(var(--neutral-variant-key-chroma) * 100%) 82%);
+    --neutral-variant-tone-90: hsl(var(--neutral-variant-key-hue) calc(var(--neutral-key-chroma) * 100%) 90%);
+    --neutral-variant-tone-95: hsl(var(--neutral-variant-key-hue) calc(var(--neutral-key-chroma) * 100%) 95%);
+    --neutral-variant-tone-99: hsl(var(--neutral-variant-key-hue) calc(var(--neutral-key-chroma) * 100%) 99%);
+    --neutral-variant-tone-100: hsl(var(--neutral-variant-key-hue) calc(var(--neutral-key-chroma) * 100%) 100%);
+
+    /* Accent Tones (for the vibrant purple) */
+    --accent-tone-0: hsl(var(--accent-hue) calc(var(--accent-chroma) * 100%) 0%);
+    --accent-tone-10: hsl(var(--accent-hue) calc(var(--accent-chroma) * 100%) 10%);
+    --accent-tone-20: hsl(var(--accent-hue) calc(var(--accent-chroma) * 100%) 20%);
+    --accent-tone-30: hsl(var(--accent-hue) calc(var(--accent-chroma) * 100%) 30%);
+    --accent-tone-40: hsl(var(--accent-hue) calc(var(--accent-chroma) * 100%) 40%);
+    --accent-tone-50: hsl(var(--accent-hue) calc(var(--accent-chroma) * 100%) 50%);
+    --accent-tone-60: hsl(var(--accent-hue) calc(var(--accent-chroma) * 100%) 60%);
+    --accent-tone-70: hsl(var(--accent-hue) calc(var(--accent-chroma) * 100%) 70%);
+    --accent-tone-80: hsl(var(--accent-hue) calc(var(--accent-chroma) * 100%) 80%);
+    --accent-tone-90: hsl(var(--accent-hue) calc(var(--accent-chroma) * 100%) 90%);
+    --accent-tone-95: hsl(var(--accent-hue) calc(var(--accent-chroma) * 100%) 95%);
+    --accent-tone-99: hsl(var(--accent-hue) calc(var(--accent-chroma) * 100%) 99%);
+    --accent-tone-100: hsl(var(--accent-hue) calc(var(--accent-chroma) * 100%) 100%);
+
+
+    /* --- 4. Semantic Color Roles (Dark Mode - now default) --- */
+    --color-primary: var(--neutral-tone-30); /* Mid-dark grey for primary (around gray-700) */
+    --color-on-primary: var(--neutral-tone-90); /* Light text on primary */
+    --color-primary-container: var(--neutral-tone-20); /* Darker grey for primary containers (around gray-800) */
+    --color-on-primary-container: var(--neutral-tone-80); /* Lighter text on primary container */
+
+    --color-secondary: var(--neutral-tone-40); /* Mid-grey */
+    --color-on-secondary: var(--neutral-tone-90);
+    --color-secondary-container: var(--neutral-tone-25);
+    --color-on-secondary-container: var(--neutral-tone-85);
+
+    --color-tertiary: var(--neutral-tone-50);
+    --color-on-tertiary: var(--neutral-tone-90);
+    --color-tertiary-container: var(--neutral-tone-30);
+    --color-on-tertiary-container: var(--neutral-tone-80);
+
+    --color-accent: var(--accent-tone-80); /* Vibrant purple accent */
+    --color-on-accent: var(--accent-tone-20); /* Dark text on accent */
+    --color-accent-container: var(--accent-tone-30); /* Darker purple for accent containers */
+    --color-on-accent-container: var(--accent-tone-90); /* Light text on accent container */
+
+    /* Backgrounds and Surfaces */
+    --color-background: var(--neutral-tone-10); /* Deep dark grey for general background (around gray-900) */
+    --color-on-background: var(--neutral-tone-90); /* Light grey text on dark background (around gray-100) */
+
+    --color-surface: var(--neutral-tone-12); /* Slightly lighter surface for distinction (between gray-800 and 900) */
+    --color-on-surface: var(--neutral-tone-90);
+
+    --color-surface-variant: var(--neutral-variant-tone-20); /* More distinct surface for components (around gray-800) */
+    --color-on-surface-variant: var(--neutral-variant-tone-80);
+
+    --color-elevation-surface: var(--neutral-tone-20); /* Cards, slightly lighter than background for "lift" (around gray-800) */
+    --color-on-elevation-surface: var(--neutral-tone-90);
+
+    /* Inverse Colors (these are meant to be light on dark sections, and vice-versa) */
+    --color-inverse-surface: var(--neutral-tone-90); /* A light grey for inverse areas (around gray-100) */
+    --color-inverse-on-surface: var(--neutral-tone-20); /* Dark text on the light inverse surface (around gray-800) */
+
+    /* Outline/Border */
+    --color-outline: var(--neutral-tone-60);
+
+    /* Shadows */
+    --shadow-card-floating: 0px 4px 12px hsla(var(--source-hue) 5% 0%, 0.3);
+    --shadow-raised-button: 0px 6px 12px hsla(var(--source-hue) 5% 0%, 0.4), 0px 3px 6px hsla(var(--source-hue) 5% 0%, 0.3);
+}
+
+/* --- 5. Base Body Styles --- */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-on-background);
+    /* Removed transition properties as there's no mode switching */
+    line-height: 1.6; /* Improved readability */
+}
+
+/* --- 6. Component-Specific Styles --- */
+
+/* Card styles */
+.card {
+    background-color: var(--color-elevation-surface);
+    color: var(--color-on-elevation-surface);
+}
+
+/* Custom scrollbar for aesthetics */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--color-background);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-tone-40); /* Adjusted for dark mode hover */
+}
+
+
+/* Material 3 Expressive Design Shadows */
+.shadow-card-floating {
+    box-shadow: var(--shadow-card-floating); /* Now directly uses the dark mode shadow */
+}
+.shadow-raised-button {
+    box-shadow: var(--shadow-raised-button); /* Now directly uses the dark mode shadow */
+}
+
+/* Ripple effect for interactive elements */
+.ripple-effect {
+    position: relative;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+}
+.ripple-effect:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    /* Ripple color now uses accent or on-primary-container for contrast */
+    background-image: radial-gradient(circle, var(--color-on-primary-container) 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform .5s, opacity 1s;
+}
+.ripple-effect:active:after {
+    transform: scale(0, 0);
+    opacity: .2;
+    transition: 0s;
+}
+
+/* Ripple specific element styling */
+.ripple-effect .ripple {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.7); /* All ripples are light for dark backgrounds */
+    transform: scale(0);
+    animation: ripple-animation 0.6s linear;
+    pointer-events: none;
+    opacity: 0;
+}
+
+/* Removed light mode specific ripple adjustments */
+
+@keyframes ripple-animation {
+    from {
+        transform: scale(0);
+        opacity: 0.5;
+    }
+    to {
+        transform: scale(2.5);
+        opacity: 0;
+    }
+}
+
+/* Scroll reveal animation */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.scroll-reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Custom iframe styling */
+iframe {
+    border-radius: 12px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 2px 4px rgba(0, 0, 0, 0.06);
+    background-color: var(--color-surface-variant);
+}
+
+
+/* --- 7. Layout Specific Styles --- */
+
+/* Specific section background colors */
+/* These will now correctly adapt to the new neutral dark mode colors */
+.section-bg-1 { background-color: var(--color-background); }
+.section-bg-2 { background-color: var(--color-surface); }
+.section-bg-3 { background-color: var(--color-inverse-surface); color: var(--color-inverse-on-surface); }
+.section-bg-4 { background-color: var(--color-tertiary-container); color: var(--color-on-tertiary-container); }
+.section-bg-5 { background-color: var(--color-primary-container); color: var(--color-on-primary-container); }
+.section-bg-6 { background-color: var(--color-surface-variant); }
+.section-bg-7 { background-color: var(--color-surface); }
+.section-bg-8 { background-color: var(--color-secondary-container); color: var(--color-on-secondary-container); }
+
+/* Ensure content is centered and has max width */
+.container-max-width {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Ensure sections are centered and has max width */
+.section-max-width {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* HERO SECTION STYLES */
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.hero-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop'); /* Keeping original image */
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.3) saturate(0.5); /* Consolidated to dark mode filter */
+}
+
+.hero-content-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    background-color: hsla(var(--source-hue), 5%, 15%, 0.3); /* Dark transparent overlay */
+    color: var(--color-on-background); /* Ensure text is readable */
+    -webkit-mask-image: linear-gradient(100deg, transparent 35%, black 55%);
+    mask-image: linear-gradient(100deg, transparent 35%, black 55%);
+}
+
+.hero-content {
+    position: relative;
+    width: 100%;
+    padding-left: 50%;
+    padding-right: 5%;
+    z-index: 10;
+}
+.app-main-content .hero-content {
+    padding-left: 0;
+    padding-right: 0;
+    text-align: left;
+    width: 100%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+}
+
+/* Dark Mode Toggle Button - Now just a general fixed button */
+.button-fixed-to-content-edge {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 50;
+    background-color: var(--color-surface-variant);
+    color: var(--color-on-surface-variant);
+    border-radius: 9999px;
+    box-shadow: var(--shadow-card-floating); /* Directly use the dark mode shadow */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button-fixed-to-content-edge:hover {
+    background-color: var(--neutral-tone-25); /* Adjusted for dark mode hover */
+    color: var(--neutral-tone-95);
+}
+
+
+@media (min-width: 1400px) {
+    .button-fixed-to-content-edge {
+        right: calc((100vw - 1400px) / 2 + 1.5rem);
+    }
+}
+
+/* New class for the vibrant purple accent text */
+.text-accent {
+    color: var(--color-accent);
+}
+
+/* Call to action button styling */
+.cta-button {
+    background-color: var(--color-accent); /* Use the accent color for CTA */
+    color: var(--color-on-accent);
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-flex; /* To correctly apply padding and center content */
+    align-items: center;
+    justify-content: center;
+}
+
+.cta-button:hover {
+    background-color: var(--accent-tone-70); /* Lighter on hover for dark mode */
+}
+
+/* Tailwind-like text sizing and weight classes, mapping to Material 3 font scale */
+.text-display {
+    font-size: 3rem; /* Equivalent to display-medium/large */
+    line-height: 1.2;
+}
+.text-h1 {
+    font-size: 2.25rem; /* Equivalent to headline-large */
+    line-height: 1.25;
+}
+.text-h2 {
+    font-size: 1.875rem; /* Equivalent to headline-medium */
+    line-height: 1.3;
+}
+.text-h3 {
+    font-size: 1.5rem; /* Equivalent to title-large */
+    line-height: 1.35;
+}
+.text-bodyLarge {
+    font-size: 1.125rem; /* Equivalent to body-large */
+    line-height: 1.5;
+}
+.text-bodyMedium {
+    font-size: 1rem; /* Equivalent to body-medium */
+    line-height: 1.5;
+}
+.text-button {
+    font-size: 1rem; /* Equivalent to label-large */
+    font-weight: 500;
+    text-transform: uppercase;
+}
